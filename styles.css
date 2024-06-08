@@ -1,0 +1,186 @@
+/* styles.css */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+header {
+    background-color: #ffcccc;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    font-family: 'Great Vibes', cursive;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+}
+
+header p {
+    margin: 10px 0 0;
+    font-size: 1.5em;
+}
+
+.bride-groom {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+    background-color: white;
+}
+
+.person {
+    text-align: center;
+}
+
+.person img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.person h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2em;
+    margin: 10px 0 0;
+}
+
+.schedule {
+    padding: 50px 20px;
+    background-color: #ffefef;
+    text-align: center;
+}
+
+.schedule h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.schedule ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2em;
+}
+
+.schedule li {
+    margin: 20px 0;
+}
+
+.media {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 50px 20px;
+    background-color: white;
+}
+
+.countdown, .location {
+    width: 45%;
+    text-align: center;
+}
+
+.countdown h2, .location h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.5em;
+}
+
+#countdown-timer div {
+    background-color: #ffcccc;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    min-width: 80px;
+    text-align: center;
+}
+
+#map {
+    width: 100%;
+    height: 315px;
+}
+
+.gallery {
+    padding: 50px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.gallery h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.tab {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 1.2em;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+}
+
+.photos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.photos img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.photos img:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #ffcccc;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+}

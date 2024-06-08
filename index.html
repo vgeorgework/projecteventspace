@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>John & Jane's Wedding</h1>
+        <p>Join us in celebrating our special day</p>
+    </header>
+
+    <section class="bride-groom">
+        <div class="person">
+            <img src="bride.webp" alt="Bride">
+            <h2>Jane Doe</h2>
+        </div>
+        <div class="person">
+            <img src="groom.webp" alt="Groom">
+            <h2>John Smith</h2>
+        </div>
+    </section>
+
+    <section class="schedule">
+        <h2>Schedule of Events</h2>
+        <ul>
+            <li><strong>Ceremony:</strong> 10:00 AM at St. Mary's Church</li>
+            <li><strong>Reception:</strong> 12:00 PM at Grand Ballroom</li>
+            <li><strong>Dinner:</strong> 6:00 PM at Grand Ballroom</li>
+        </ul>
+    </section>
+
+    <section class="media">
+        <div class="countdown">
+            <h2 id= "youtube-live-heading" > YouTube Live Starts In:</h2>
+            <div id="countdown-timer">
+                <div><span id="days"></span> Days</div>
+                <div><span id="hours"></span> Hours</div>
+                <div><span id="minutes"></span> Minutes</div>
+                <div><span id="seconds"></span> Seconds</div>
+            </div>
+            <div id="youtube-video" style="display: none;">
+                <h2>YouTube Live Stream</h2>
+                <iframe width="560" height="315" src="https://www.youtube.com/watch?v=JNKZN8uq1H8" frameborder="0" mute="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+        </div>
+
+        <div class="location">
+            <h2>Location</h2>
+            <div id="map"></div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2>Photo Gallery</h2>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Ceremony')" id="defaultOpen">Ceremony</button>
+            <button class="tablinks" onclick="openTab(event, 'Reception')">Reception</button>
+        </div>
+
+        <div id="Ceremony" class="tabcontent">
+            <div class="photos">
+                <img src="https://via.placeholder.com/200" alt="Ceremony Photo 1">
+                <img src="https://via.placeholder.com/200" alt="Ceremony Photo 2">
+                <img src="https://via.placeholder.com/200" alt="Ceremony Photo 3">
+            </div>
+        </div>
+
+        <div id="Reception" class="tabcontent">
+            <div class="photos">
+                <img src="https://via.placeholder.com/200" alt="Reception Photo 1">
+                <img src="https://via.placeholder.com/200" alt="Reception Photo 2">
+                <img src="https://via.placeholder.com/200" alt="Reception Photo 3">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 John & Jane's Wedding</p>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        document.getElementById("defaultOpen").click();
+
+        function initMap() {
+            var location = { lat: 40.712776, lng: -74.005974 }; // Example: New York City
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+
+        function startCountdown(endTime) {
+            var countdownTimer = setInterval(function() {
+                var now = new Date().getTime();
+                var distance = endTime - now;
+
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days;
+                document.getElementById("hours").innerText = hours;
+                document.getElementById("minutes").innerText = minutes;
+                document.getElementById("seconds").innerText = seconds;
+
+                if (distance < 0) {
+                    clearInterval(countdownTimer);
+                    document.getElementById("youtube-live-heading").style.display = "none";
+                    document.getElementById("countdown-timer").style.display = "none";
+                    document.getElementById("youtube-video").style.display = "block";
+                }
+            }, 1000);
+        }
+
+        var countdownDate = new Date("Jun 30, 2024 19:54:00").getTime(); // Set your date here
+        startCountdown(countdownDate);
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
+</body>
+</html>
